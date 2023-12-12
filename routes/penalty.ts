@@ -6,8 +6,8 @@ const router = Router();
 router.get('/penalty', PenaltyController.getAllPenaltyTypes);
 router.post('/penalty/:id', PenaltyController.getPenaltyById);
 
-router.get('/penalties', PenaltyController.getAllPenalties);
+router.get('/penalties/:id', PenaltyController.getAllPenalties);
 router.post('/penalties', PenaltyController.createPenalty);
-router.get('/penalties/:id', PenaltyController.getUserPenalty);
+router.post('/penalties/:id', PenaltyController.getUserPenalty);
 
 export default router;

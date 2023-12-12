@@ -65,6 +65,7 @@ class EntityService {
     }
 
     async getPenalties(parentDocumentId: string) {
+        console.log("collection: " + this.collection);
         const subcollectionRef = collection(firebase.db, this.collection, parentDocumentId, "penalties");
     
         const subcollectionSnapshot = await getDocs(subcollectionRef);

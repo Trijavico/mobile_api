@@ -8,14 +8,15 @@ class PenaltyController{
     static async getUserPenalty(req: Request, res: Response){
         PenaltyController.entityService.setCollection("users");
         const { id } = req.params;
-        const uid = req.query.uid as string;
+        const { uid } = req.body;
 
         const penalty = await PenaltyController.entityService.findPenalty(uid, id);
         
-        res.json({ok: true, penalties: penalty});
+        res.json({ok: true, penalty: penalty});
     }
 
     static async getAllPenalties(req: Request, res: Response){
+        PenaltyController.entityService.setCollection("users");
         const {id} = req.params;
         const penalties = await PenaltyController.entityService.getPenalties(id);
 
